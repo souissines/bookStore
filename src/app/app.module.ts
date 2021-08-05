@@ -12,6 +12,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomerService} from "./Customermanager/customer.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {CustomerService} from "./Customermanager/customer.service";
     ReactiveFormsModule,
     MatDialogModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   entryComponents: [
     DialogOverviewExampleDialog

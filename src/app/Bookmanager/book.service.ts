@@ -8,23 +8,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BookService {
-  
+
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
   public getBooks() : Observable <Book[]> {
     return this.http.get<Book[]>(`${this.apiServerUrl}/book/all`);
-   
- 
+
+
   }
 
-  public addBooks(book : Book) : Observable <Book> {
+  public addBook(book : Book) : Observable <Book> {
     return this.http.post<Book>(`${this.apiServerUrl}/book/add`, book);
   }
 
   public updateBook(book : Book) : Observable <Book> {
-    return this.http.put<Book>(`${this.apiServerUrl}/book/add`, book);
+    return this.http.put<Book>(`${this.apiServerUrl}/book/update`, book);
   }
 
   public deleteBook(bookId : number) : Observable <void> {
