@@ -1,0 +1,36 @@
+
+<h1 mat-dialog-title  > {{book.actionType}} Book </h1>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="fill" >
+    <div *ngIf="book.actionType== 'add' || book.actionType=='edit' ">
+    <mat-label>Add Book</mat-label>
+    <input matInput   placeholder="title">
+    <input matInput   placeholder="Author Name">
+    <input matInput   placeholder="Release Date">
+
+    <input matInput   placeholder="Release Date">
+    <input matInput [(ngModel)]="book.actionType" placeholder="Register  Date">
+    <input matInput [(ngModel)]="book.actionType" placeholder="Image Url">
+    </div>
+    <div *ngIf="book.actionType =='delete'">
+        <mat-label>t7eb tfassakh lekteb bel7a9</mat-label>
+    </div>
+  </mat-form-field>
+</div>
+
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button *ngIf="book.actionType != 'delete' "  [mat-dialog-close]="book" cdkFocusInitial>Ok</button>
+  <button *ngIf="book.actionType == 'delete'" mat-button   (click)="toDelete()" cdkFocusInitial>Delete</button>
+</div>
+
+
+
+
+
+
+
+
