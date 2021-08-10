@@ -13,6 +13,27 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomerService} from "./Customermanager/customer.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {MatNativeDateModule} from "@angular/material/core";
+import {AngularFileUploaderModule} from "angular-file-uploader";
+import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatIconModule} from "@angular/material/icon";
+import { HandleComponent } from './Bookmanager/bookstore/handle/handle.component';
+import {DialogOverviewExampleComponent} from "./Customermanager/customer/dialog-overview-example/dialog-overview-example.component";
+import {PdfViewerModule} from "ng2-pdf-viewer";
+
+const materialModules = [
+  MatIconModule,
+  MatButtonModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatProgressBarModule,
+  MatToolbarModule
+];
+
 
 @NgModule({
   declarations: [
@@ -20,7 +41,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     BookStoreComponent,
     CustomerComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    HandleComponent,
+    DialogOverviewExampleComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -31,10 +56,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    AngularFileUploaderModule,
+    MatToolbarModule,
+    PdfViewerModule
+
+
+
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+
   ]
   ,
   providers: [BookService,CustomerService],

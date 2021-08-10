@@ -1,27 +1,22 @@
-<h1 mat-dialog-title> {{data.book.actionType}} Book </h1>
+<h1 mat-dialog-title> {{data.actionType}} Book </h1>
 <div mat-dialog-content>
 
-  <mat-form-field appearance="fill">
-    <Form>
-      <div *ngIf="data.actionType== 'add' || data.actionType=='edit' ">
-        <input matInput placeholder="title" [(ngModel)]="data.book.title">
-        <input matInput placeholder="Author Name" [(ngModel)]="data.book.author">
-        <input matInput placeholder="Release Date" [(ngModel)]="data.book.releaseDate">
-        <input matInput placeholder="Release Date" [(ngModel)]="data.book.registerDate">
-        <input matInput placeholder="totalExamplaries" [(ngModel)]="data.book.totalExamplaries">
-        <input matInput placeholder="Image Url" [(ngModel)]="data.book.imageUrl">
-      </div>
-      <div *ngIf="data.actionType =='delete'">
-        <mat-label>Are you sure to delete this book ?</mat-label>
-      </div>
-    </Form>
-  </mat-form-field>
+
+  <div *ngIf="data.actionType =='delete'">
+    <mat-label>Are you sure to delete this book ?</mat-label>
+  </div>
+
+
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{data.actionType}}</button>
+  <button mat-button class="btn btn-primary" (click)="onNoClick()" style="margin-right:10px">No Thanks</button>
+  <button mat-button class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>{{data.actionType}}</button>
 </div>
+
+
+
+
 
 
 

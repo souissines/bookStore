@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Book Manager</a>
+  <a class="navbar-brand" href="#">Customer Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,12 +9,14 @@
 
 
       <li class="nav-item active">
-        <a class="nav-link" href="#" back>Add Customer <span class="sr-only" >(current)</span></a>
+        <a  (click)="openDialog({}, 'add')" class="nav-link" >Add Customer <span class="sr-only" >(current)</span></a>
       </li>
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search customer ..." aria-label="Search">
+      <input type="search" (ngModelChange)="searchCustomers(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"
+             placeholder="Search book ..." aria-label="Search"
+             name="key" id="searchTitle">
 
     </form>
   </div>
@@ -41,8 +43,8 @@
         </ul>
         <div class="card-body">
           <div class="float-right btn-group btn-group-sm">
-            <a  class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-            <a  class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+            <a (click)="openDialog(customer, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+            <a  (click)="openDialog(customer, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
           </div>
         </div>
       </div>

@@ -9,14 +9,16 @@
     <ul class="navbar-nav mr-auto">
 
 
-      <li class="nav-item active">
+      <li class="nav-item active" routerLinkActive="active">
         <!--                <a class="nav-link" (click)="onOpenModal({}, 'add')">Add Book <span class="sr-only" >(current)</span></a>-->
-        <a class="nav-link" (click)="openDialog({}, 'add')">Add Book <span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="add()">Add Book <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search book ..." aria-label="Search">
+      <input type="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"
+             placeholder="Search book ..." aria-label="Search"
+             name="key" id="searchTitle">
 
     </form>
   </div>
@@ -47,11 +49,16 @@
           <li>
             Total Examplaries: {{book?.totalExamplaries}} </li>
 
+
+          <li class="m-0 ">data: {{book?.data}}
+          </li>
+
         </ul>
         <div class="card-body ">
           <div class="float-right btn-group btn-group-sm ">
-            <a (click)="openDialog(book, 'edit')" class="btn btn-primary tooltips " data-placement="top "
-               data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil "></i> </a>
+            <a class="btn btn-primary tooltips " data-placement="top "
+               data-toggle="tooltip " data-original-title="Edit " (click)="edit(book.id)"><i class="fa fa-pencil "></i>
+            </a>
             <a (click)="openDialog(book, 'delete')" class="btn btn-secondary tooltips " data-placement="top "
                data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times "></i></a>
           </div>

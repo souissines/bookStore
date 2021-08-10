@@ -1,0 +1,53 @@
+<h1 mat-dialog-title> {{data.actionType}} Customer </h1>
+<div mat-dialog-content>
+
+
+  <div *ngIf="data.actionType== 'add' || data.actionType=='edit' ">
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>name</mat-label>
+      <input matInput [(ngModel)]="data.customer.name">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input matInput [(ngModel)]="data.customer.email">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>jobTitle</mat-label>
+      <input matInput [(ngModel)]="data.customer.jobTitle">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>phone</mat-label>
+      <input matInput [(ngModel)]="data.customer.phone">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput [(ngModel)]="data.customer.imageUrl">
+    </mat-form-field>
+
+
+
+  </div>
+  <div *ngIf="data.actionType =='delete'">
+    <mat-label>Are you sure to delete this customer ?</mat-label>
+  </div>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-primary" (click)="onNoClick()" style="margin-right:10px">No Thanks</button>
+  <button mat-button class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>{{data.actionType}}</button>
+</div>
+
+
+
+
+
+
