@@ -50,7 +50,8 @@
             Total Examplaries: {{book?.totalExamplaries}} </li>
 
 
-          <li class="m-0 ">data: {{book?.data}}
+          <li class="m-0 ">data:
+            <button (click)="downloadMyFile(book)" class="btn btn-primary">download File</button>
           </li>
 
         </ul>

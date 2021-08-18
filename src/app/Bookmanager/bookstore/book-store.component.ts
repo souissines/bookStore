@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Book} from '../bookstore/book';
-
+import {HandleComponent} from "./handle/handle.component";
 import {BookService} from '../book.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -86,6 +86,51 @@ export class BookStoreComponent implements OnInit {
     this.router.navigate(['/book']);
 
   }
+
+  downloadPdf(base64String : string, fileName: string) {
+    const source = base64String;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
+  }
+
+
+  downloadMyFile(book: Book){
+
+    this.downloadPdf(book.data as string, book.title as string);
+      // let byteArray ;
+      // if(!!this.book){
+      //   byteArray= new Uint8Array(
+      //
+      //     atob(this.book.data as string )
+      //       .split("")
+      //       .map(char => char.charCodeAt(0))
+      //   )
+      // }
+      //
+      // const file = new Blob([byteArray as Uint8Array], { type: "application/pdf" });
+      // const fileURL = URL.createObjectURL(file);
+      // let pdfName = 'book';
+      // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+      //   window.navigator.msSaveOrOpenBlob(file, pdfName);
+      // } else {
+      //   //window.open(fileURL);
+      //
+      //   // Construct the 'a' element
+      //   let link = document.createElement("a");
+      //   link.download = pdfName;
+      //   link.target = "_blank";
+  //
+  //       // Construct the URI
+  //       link.href = fileURL;
+  //       document.body.appendChild(link);
+  //       link.click();
+  //
+  //       // Cleanup the DOM
+  //       document.body.removeChild(link);
+  //     }
+   }
 }
 
 @Component({

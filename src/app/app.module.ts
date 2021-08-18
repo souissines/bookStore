@@ -23,7 +23,28 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatIconModule} from "@angular/material/icon";
 import { HandleComponent } from './Bookmanager/bookstore/handle/handle.component';
 import {DialogOverviewExampleComponent} from "./Customermanager/customer/dialog-overview-example/dialog-overview-example.component";
-import {PdfViewerModule} from "ng2-pdf-viewer";
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AngularFireAuthModule, } from 'angularfire2/auth'
+import {AuthService} from "./services/auth.service";
+import {AuthGuardService} from "./services/auth-guard.service";
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/messaging';
+import 'firebase/storage';
+import 'firebase/functions';
+import {AngularFireModule} from "angularfire2";
+import * as firebase from "firebase";
+import { HeaderComponent } from './header/header.component';
+// MDB Angular Pro
+// MDB Angular Free
+import {ButtonsModule, WavesModule, IconsModule, InputsModule, CardsModule, NavbarModule} from 'angular-bootstrap-md'
+
+
+
+
+
+
 
 const materialModules = [
   MatIconModule,
@@ -43,7 +64,11 @@ const materialModules = [
     CustomerComponent,
     DialogOverviewExampleDialog,
     HandleComponent,
-    DialogOverviewExampleComponent
+    DialogOverviewExampleComponent,
+    SignupComponent,
+    SigninComponent,
+    HeaderComponent,
+
 
 
   ],
@@ -62,8 +87,14 @@ const materialModules = [
     MatNativeDateModule,
     AngularFileUploaderModule,
     MatToolbarModule,
-    PdfViewerModule
-
+    AngularFireAuthModule,
+    AngularFireModule,
+    ButtonsModule,
+    WavesModule,
+    IconsModule,
+    InputsModule,
+    CardsModule,
+    NavbarModule
 
 
   ],
@@ -72,7 +103,7 @@ const materialModules = [
 
   ]
   ,
-  providers: [BookService,CustomerService],
+  providers: [BookService,CustomerService,AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
