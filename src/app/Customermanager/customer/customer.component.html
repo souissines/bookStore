@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Customer Manager</a>
+  <a class="navbar-brand" href="#" style="background-color: navajowhite">Customer Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,24 +8,36 @@
     <ul class="navbar-nav mr-auto">
 
 
-      <li class="nav-item active">
+      <li class="nav-item active" style="background-color: navajowhite">
         <a  (click)="openDialog({}, 'add')" class="nav-link" >Add Customer <span class="sr-only" >(current)</span></a>
       </li>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" (ngModelChange)="searchCustomers(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"
-             placeholder="Search book ..." aria-label="Search"
-             name="key" id="searchTitle">
+<!--    <form class="form-inline my-2 my-lg-0">-->
+<!--      <input type="search" (ngModelChange)="searchCustomers(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"-->
+<!--             placeholder="Search book ..." aria-label="Search"-->
+<!--             name="key" id="searchTitle">-->
 
+<!--    </form>-->
+<div class="col-sm-8 col-sm-offset-2">
+
+
+    <!-- The form -->
+    <form class="example" action="action_page.php"   >
+      <input type="text" placeholder="Search.." name="search"  (ngModelChange)="searchCustomers(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2">
+      <button type="submit"><i class="fa fa-search"></i></button>
     </form>
+  <!-- Load icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</div>
+
   </div>
 </nav>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 <div class="container">
-  <div class="row">
+  <div class="row" style="background-color: lemonchiffon">
     <div *ngFor="let customer of customers" class=" col-md-6 col-xl-3 ">
       <div class="card m-b-30 ">
         <div class="card-body row ">

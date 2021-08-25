@@ -1,5 +1,6 @@
-<h1 mat-dialog-title> {{data.actionType}} Customer </h1>
-<div mat-dialog-content>
+<div style="background-color: navajowhite">
+<h1 mat-dialog-title > {{data.actionType}} Customer </h1>
+<div mat-dialog-content style="background-color: navajowhite">
 
 
   <div *ngIf="data.actionType== 'add' || data.actionType=='edit' ">
@@ -13,7 +14,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>email</mat-label>
-      <input matInput [(ngModel)]="data.customer.email">
+      <input matInput [(ngModel)]="data.customer.email" placeholder="default@example.com">
     </mat-form-field>
 
 
@@ -41,9 +42,10 @@
 
 </div>
 
-<div mat-dialog-actions>
+<div mat-dialog-actions style="background-color: navajowhite">
   <button mat-button class="btn btn-primary" (click)="onNoClick()" style="margin-right:10px">No Thanks</button>
   <button mat-button class="btn btn-primary" [mat-dialog-close]="data" cdkFocusInitial>{{data.actionType}}</button>
+</div>
 </div>
 
 

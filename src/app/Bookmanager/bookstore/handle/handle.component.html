@@ -2,32 +2,82 @@
   <div class="col-md-4">
     <h2>{{book?.id}}</h2>
     <form [formGroup]="bookForm">
+
+
       <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" id="title" class="form-control" formControlName="title">
-      </div>
-      <div class="form-group">
-        <label for="author">Author</label>
-        <input type="text" id="author" class="form-control" formControlName="author">
-      </div>
-      <div class="form-group">
-        <label for="releaseDate">release Date</label>
-        <input id="releaseDate" class="form-control" formControlName="releaseDate">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" type="text" id="title" class="form-control" formControlName="title">
+
+        </mat-form-field>
 
       </div>
+
+
       <div class="form-group">
-        <label for="registerDate">register Date</label>
-        <input id="registerDate" class="form-control" formControlName="registerDate">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Author Name</mat-label>
+          <input matInput placeholder="Author" type="text" id="author" class="form-control" formControlName="author">
+
+        </mat-form-field>
 
       </div>
+
+
       <div class="form-group">
-        <label for="totalExamplaries">total Examplaries</label>
-        <input id="totalExamplaries" class="form-control" formControlName="totalExamplaries">
+        <mat-form-field appearance="fill">
+          <mat-label>release Date</mat-label>
+          <input matInput [matDatepicker]="picker" id="releaseDate" class="form-control" formControlName="releaseDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>register Date</mat-label>
+          <input matInput [matDatepicker]="picker1" id="registerDate" class="form-control"
+                 formControlName="registerDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+
+
+
+      <div class="form-group">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Total Examplaries</mat-label>
+          <input matInput placeholder="TotalExamplaries" type="text" id="totalExamplaries" class="form-control" formControlName="totalExamplaries">
+
+        </mat-form-field>
 
       </div>
+
+
+
+
+
+
+
+
+
+
       <div class="form-group">
-        <label for="imageUrl">image Url</label>
-        <input id="imageUrl" class="form-control" formControlName="imageUrl">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input matInput placeholder="imageUrl" type="text" id="imageUrl" class="form-control" formControlName="imageUrl">
+
+        </mat-form-field>
+
+
 
         <div class="form-group">
           <label for="file">Upload Data</label>
@@ -38,9 +88,7 @@
             multiple
             class="form-control"
             (change)="onFileChange($event)">
-<!--          <div *ngIf="f.file?.touched && f.file?.invalid" class="alert alert-danger">-->
-<!--            <div *ngIf="f.file?.errors && f.file?.errors.required">File is required.</div>-->
-<!--          </div>-->
+
         </div>
 
 

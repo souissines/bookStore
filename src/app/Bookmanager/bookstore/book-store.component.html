@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Book Manager</a>
+  <a class="navbar-brand" href="#" style="background-color: navajowhite">Book Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,53 +9,94 @@
     <ul class="navbar-nav mr-auto">
 
 
-      <li class="nav-item active" routerLinkActive="active">
+      <li class="nav-item active" routerLinkActive="active" style="background-color: navajowhite">
         <!--                <a class="nav-link" (click)="onOpenModal({}, 'add')">Add Book <span class="sr-only" >(current)</span></a>-->
         <a class="nav-link" (click)="add()">Add Book <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"
-             placeholder="Search book ..." aria-label="Search"
-             name="key" id="searchTitle">
 
-    </form>
+
+    <div class="col-sm-8 col-sm-offset-2">
+
+
+      <!-- The form -->
+      <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel"
+               ngModel class="form-control mr-sm-2">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- Load icon library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </div>
+
+
+    <!--    <form class="form-inline my-2 my-lg-0">-->
+    <!--      <input type="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel" ngModel class="form-control mr-sm-2"-->
+    <!--             placeholder="Search book ..." aria-label="Search"-->
+    <!--             name="key" id="searchTitle"  >-->
+
+    <!--    </form>-->
   </div>
 </nav>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container">
   <div class="row">
-    <div *ngFor="let book of books" class=" col-md-6 col-xl-3 ">
-      <div class="card m-b-30 ">
+    <div *ngFor="let book of books" class=" col-md-6 col-xl-3 " style="opacity: 1">
+      <div class="card m-b-30 " style="background-color: lemonchiffon">
         <div class="card-body row ">
           <div class="col-6 ">
             <a href=" ">
-              <img src="{{book?.imageUrl}}">
+              <img src="{{book?.imageUrl}}" style="border-radius: 8px;">
             </a>
           </div>
 
         </div>
         <ul class="list-group list-group-flush ">
-          <li>
-            Title: {{book?.title}} </li>
-          <li class="m-0 ">Author: {{book?.author}}
-          </li>
-          <li>
-            Release Date:{{book?.releaseDate}} </li>
-          <li class="m-0 ">Register Date: {{book?.registerDate}}
-          </li>
-          <li>
-            Total Examplaries: {{book?.totalExamplaries}} </li>
+          <div><h3 style="font-family:Cursive">
+            Title: </h3> <h4 style="font-family:monospace, monospace "> {{book?.title}}</h4></div>
+          <div class="m-0 "><h3 style="font-family:Cursive">Author: </h3> <h4
+            style="font-family:monospace, monospace ">{{book?.author}}</h4>
+          </div>
 
 
-          <li class="m-0 ">data:
+          <div>
+            <h3 style="font-family:Cursive"> Release Date: </h3><h4
+            style="font-family:monospace, monospace "> {{book?.releaseDate}}</h4></div>
+          <div class="m-0 "><h3 style="font-family:Cursive">Register Date:</h3> <h4
+            style="font-family:monospace, monospace ">{{book?.registerDate}}</h4>
+          </div>
+
+
+          <div><h3 style="font-family:Cursive">
+            Total Examplaries:</h3> <h4 style="font-family:monospace, monospace ">{{book?.totalExamplaries}}</h4></div>
+
+
+          <div class="m-0 "><h3 style="font-family:Cursive">data:</h3>
             <button (click)="downloadMyFile(book)" class="btn btn-primary">download File</button>
-          </li>
+          </div>
+
+<!--<li>-->
+<!--          <div class="content card" style="background-color: lemonchiffon">-->
+<!--            <h2 class="title"> Payment </h2>-->
+
+<!--            <form action="/charge" method="post" id="payment-form">-->
+
+<!--              <div class="paymentBox">-->
+<!--                <div id="card-element">-->
+<!--                </div>-->
+
+<!--                <button id="button" class="btn btn-primary" > Pay </button>-->
+<!--                <div id="card-errors" role="alert"></div>-->
+<!--              </div>-->
+
+<!--            </form>-->
+<!--          </div>-->
+<!--</li>-->
 
         </ul>
-        <div class="card-body ">
+        <div class="card-body " style="background-color: navajowhite">
           <div class="float-right btn-group btn-group-sm ">
             <a class="btn btn-primary tooltips " data-placement="top "
                data-toggle="tooltip " data-original-title="Edit " (click)="edit(book.id)"><i class="fa fa-pencil "></i>
